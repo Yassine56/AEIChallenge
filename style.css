@@ -1,3 +1,76 @@
 body {
-    background: #3F3939;
+	margin: 0;
+	font-family: 'Lato', sans-serif;
+}
+
+.sidebar {
+	left: 0px;
+	top: 100px;
+	margin: 0;
+	padding: 0;
+	width: 200px;
+	background-color: #f1f1f1;
+	height: 100%;
+	overflow: auto;
+	position: absolute;
+}
+
+.sidebar a {
+	display: block;
+	color: black;
+	padding: 16px;
+	text-decoration: none;
+}
+
+.sidebar a.active {
+	background-color: #4caf50;
+	color: white;
+}
+
+.sidebar a:hover:not(.active) {
+	background-color: #555;
+	color: white;
+}
+
+div.content {
+	margin-left: 200px;
+	padding: 1px 16px;
+	height: 1000px;
+}
+
+@media screen and (max-width: 600px) {
+	.sidebar {
+		width: 100%;
+		height: auto;
+		position: relative;
+	}
+	.sidebar a {
+		text-align: center;
+		float: none;
+	}
+	div.content {
+		width: 100%;
+		height: auto;
+		position: relative;
+		margin-left: 0;
+	}
+}
+footer {
+	background: #8b8b8b;
+	height: 50px;
+	width: 100%;
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+}
+#logo {
+	height: 50px;
+	margin: 25px;
+	flex: none;
+}
+header {
+	background: #8b8b8b;
+	height: 100px;
+	display: flex;
+	text-align: left;
 }
