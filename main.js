@@ -15,38 +15,23 @@ const organize = (arr) => {
 		let reverse = current.nameOrder && current.nameOrder == 'reverse'
 		let keys = Object.keys(acc)
 		if (keys.includes(current.group)) {
-			if (reverse) {
-				return {
-					...acc,
-					[current.group]: [
-						...acc[current.group],
-						{
-							name: current.last + ' ' + current.first,
-						},
-					],
-				}
-			} else {
-				return {
-					...acc,
-					[current.group]: [
-						...acc[current.group],
-						{
-							name: current.first + ' ' + current.last,
-						},
-					],
-				}
+			return {
+				...acc,
+				[current.group]: [
+					...acc[current.group],
+					{
+						name: reverse
+							? current.last + ' ' + current.first
+							: current.first + ' ' + current.last,
+					},
+				],
 			}
 		} else {
-			if (reverse) {
-				return {
-					...acc,
-					[current.group]: [{ name: current.last + ' ' + current.first }],
-				}
-			} else {
-				return {
-					...acc,
-					[current.group]: [{ name: current.first + ' ' + current.last }],
-				}
+			return {
+				...acc,
+				[current.group]: reverse
+					? [{ name: current.last + ' ' + current.first }]
+					: [{ name: current.first + ' ' + current.last }],
 			}
 		}
 	}, {})
